@@ -13,6 +13,7 @@ public class RandomSkylinePanel extends JPanel
 {
    //private final long SEED;
   private int x;
+  private int starX, starY;
    /**
     * Constructor
     *  1) sets size of window
@@ -27,12 +28,35 @@ public class RandomSkylinePanel extends JPanel
       setBackground(new Color(10, 0, 100));
       //SEED = (long)(Math.random() * 2000000000);
       x = 20;
+      starX = 10;
+      starY = 10;
    }
    
    // Draws the panel by requesting that each building draw itself and each window draw itself
    public void paintComponent(Graphics panel)
    {
       super.paintComponent(panel);
+
+      int numberOfStars = (int) (Math.random() * 100 + 10);
+      boolean spaceForStars = true;
+      int starHeight = 3, starWidth = 3;
+      Star star;
+      for(int j = 0; j < numberOfStars && spaceForStars == true; j++) {
+        if (starWidth + starX < 575)
+        {
+          star = new Star(starHeight, starWidth, starX, starY);
+          star.draw(panel);
+          //panel.drawString("*", 60, 60);
+        }
+        else
+          spaceForStars = false;
+
+        starX += starWidth + (int) (Math.random() * 10 + 5);
+        starY += starWidth + (int) (Math.random() * 10 + 5);
+        //panel.setColor(Color.green);
+        //panel.drawString("*", 60, 60);
+      }
+
 
       int numberOfBuildings = (int) (Math.random() * 30 + 2);
       boolean spaceLeft = true;
@@ -54,10 +78,8 @@ public class RandomSkylinePanel extends JPanel
 
         x += width + (int) (Math.random() * 10 + 5); //adds a gap between bldgs
 
-        //panel.setColor(Color.white);
-        //panel.drawString("test", (100 + i * 5), 100);
       }
-
+      
       panel.setColor(Color.white);
       panel.drawString("City of Diego & Caitlyn", 50, 50);
    }
