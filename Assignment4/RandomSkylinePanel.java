@@ -28,8 +28,8 @@ public class RandomSkylinePanel extends JPanel
       setBackground(new Color(10, 0, 100));
       //SEED = (long)(Math.random() * 2000000000);
       x = 20;
-      starX = 10;
-      starY = 10;
+      //starX = 10;
+      //starY = 10;
    }
    
    // Draws the panel by requesting that each building draw itself and each window draw itself
@@ -44,9 +44,13 @@ public class RandomSkylinePanel extends JPanel
       for(int j = 0; j < numberOfStars && spaceForStars == true; j++) {
         if (starWidth + starX < 575)
         {
-          star = new Star(starHeight, starWidth, starX, starY);
-          star.draw(panel);
+          //star = new Star(starHeight, starWidth, starX, starY);
+          //star.draw(panel);
           //panel.drawString("*", 60, 60);
+          starX = (int) (Math.random() * 560 + 10);
+          starY = (int) (Math.random() * 560 + 10);
+          panel.setColor(Color.green);
+          panel.drawString("*", starX, starY);
         }
         else
           spaceForStars = false;
@@ -56,7 +60,6 @@ public class RandomSkylinePanel extends JPanel
         //panel.setColor(Color.green);
         //panel.drawString("*", 60, 60);
       }
-
 
       int numberOfBuildings = (int) (Math.random() * 30 + 2);
       boolean spaceLeft = true;
