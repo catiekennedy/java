@@ -2,10 +2,10 @@ import java.awt.*;
 import java.util.*;
 
 /**
-* Building.java --- a constructor class that has information for buidling objects that will be drawn on the SkylinePanel 
+* Building.java --- a constructor class that has information for buidling objects that will be drawn on the RandomSkylinePanel 
 * @author  Diego Otero-Caldwell & Caitlyn Kennedy
 * @version 1.0
-* @since   2016-09-17
+* @since   2016-10-04
 *input:
 *  1) a building has a height(height), width(width), x coordinate(xPlacement), y coordinate(yPlacement)
 *  2) a window has a seed (constant long WINDOW_SEED)
@@ -15,7 +15,7 @@ import java.util.*;
 *  2) drawWindows
 *    will draw windows
 *  3) getter and setter methods for the building constructor data
- */
+*/
 public class Building
 {
    //integers to hold the buildings' dimensions and location
