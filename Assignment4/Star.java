@@ -19,7 +19,7 @@ public class Star
     */
    public Star()
    {
-      numberOfStars = (int)(Math.random() * 20000);
+      numberOfStars = (int)(Math.random() * 5000);
    }
    
    /**
@@ -42,7 +42,7 @@ public class Star
       for(int i = 0; i < numberOfStars; i++)
       {
          //this is set for a 575 x 400 panel, change these numbers for different panel sizes
-         panel.fillRect((int)(Math.random() * 575), (int)(Math.random() * 200), 1, 1);
+         panel.fillRect((int)(Math.random() * 575), (int)(Math.random() * 400), 1, 1);
       }
    }
 }

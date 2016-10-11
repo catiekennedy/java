@@ -5,7 +5,7 @@ import java.awt.*;
  * RandomSkylinePanel --- A class that displays a rudimentary skyline and draws a random number of buildings each with random number of windows.
  * @author  Diego Otero-Caldwell & Caitlyn Kennedy
  * @version 1.0
- * @since   2016-10-04
+ * @since   2016-10-10
  * paintComponent method:
  *    input: panel as a Graphics object
  *    output: we will see random white stars, random black buildings with yellow windows, green String with authors' names
