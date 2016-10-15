@@ -2,22 +2,35 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * RandomSkylinePanel --- A class that displays a rudimentary skyline
- *                  by calling 5 Building objects.
+ * RandomSkylinePanel --- A class that displays a rudimentary skyline and draws a random number of buildings each with random number of windows.
  * @author  Diego Otero-Caldwell & Caitlyn Kennedy
  * @version 1.0
- * @since   2016-09-15
+ * @since   2016-10-10
+ * paintComponent method:
+ *    input: panel as a Graphics object
+ *    output: we will see random white stars, random black buildings with yellow windows, green String with authors' names
+ *    steps for random buildings: 
+ *      generate a random number, numberOfBuildings
+ *      repeat from one to the random number, for i = 0, i less than numberOfBuildings
+ *        generate random width, int width
+ *        as long as the width  and the building's x coordinate are less than the width of the window, if width plus x less than 575
+ *          generate random height, int height
+ *          instantiate a new building, bldg
+ *          draw the building
+ *          draw the windows
+ *        else
+ *          there's no more space for another building
+ *        generate a random gap between the next building
  */
 
 public class RandomSkylinePanel extends JPanel
 {
-   //private final long SEED;
   private int x;
    /**
     * Constructor
     *  1) sets size of window
     *  2) sets background color of window
-    *  3) creates 5 Building objects
+    *  3) sets the inital x coordinate of the first drawn building
     * 
     * @return no return
     */
@@ -25,7 +38,6 @@ public class RandomSkylinePanel extends JPanel
    {
       setPreferredSize(new Dimension(575, 400));
       setBackground(new Color(10, 0, 100));
-      //SEED = (long)(Math.random() * 2000000000);
       x = 20;
    }
    
@@ -34,12 +46,13 @@ public class RandomSkylinePanel extends JPanel
    {
       super.paintComponent(panel);
 
+      Star stars = new Star();
+      stars.draw(panel);
+
       int numberOfBuildings = (int) (Math.random() * 30 + 2);
       boolean spaceLeft = true;
       int width, height, gap;
       Building bldg;
-      // if there's space for another building, continue
-      // while x + w < right hand side of the panel, draw a building
       for(int i = 0; i < numberOfBuildings && spaceLeft == true; i++) {
         width = (int) (Math.random() * 100 + 50);
         if (width + x < 575)
@@ -54,11 +67,9 @@ public class RandomSkylinePanel extends JPanel
 
         x += width + (int) (Math.random() * 10 + 5); //adds a gap between bldgs
 
-        //panel.setColor(Color.white);
-        //panel.drawString("test", (100 + i * 5), 100);
       }
-
-      panel.setColor(Color.white);
+      
+      panel.setColor(Color.green);
       panel.drawString("City of Diego & Caitlyn", 50, 50);
    }
 }
