@@ -6,15 +6,18 @@ public class Temperature
 
   public Temperature(double dDegrees, char cType)
   {
-
+    degrees = dDegrees;
+    type = cType;
   }
   public Temperature(double dDegrees)
   {
-
+    degrees = dDegrees;
+    type = 'C';
   }
   public Temperature(char cType)
   {
-
+    type = cType;
+    degrees = 0.0;
   }
   public Temperature()
   {
@@ -33,7 +36,9 @@ public class Temperature
   		System.out.println(degrees);
   	}
   	else
+    {
   		System.out.println(getC());
+    }
   }
   public void writeF() 
   {
@@ -42,7 +47,9 @@ public class Temperature
       System.out.println(degrees);
     }
     else
+    {
       System.out.println(getF());
+    }
   }
   public double getC() 
   {
@@ -57,6 +64,7 @@ public class Temperature
   	}
   	else
   	{
+      c = 10.0;
   		System.out.println("Please enter a different value: ");
   	}
   	return c;
@@ -74,6 +82,7 @@ public class Temperature
     }
     else
     {
+      f = 10.0;
       System.out.println("Please enter a different value: ");
     }
     return f;
