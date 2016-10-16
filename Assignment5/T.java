@@ -4,5 +4,6 @@ public class T
 	{
 		Temperature test = new Temperature();
 		test.writeC();
+		test.writeF();
 	}
 }

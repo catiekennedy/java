@@ -37,25 +37,46 @@ public class Temperature
   }
   public void writeF() 
   {
-
+    if (type == 'F') 
+    {
+      System.out.println(degrees);
+    }
+    else
+      System.out.println(getF());
   }
   public double getC() 
   {
-  	double out;
+  	double c;
   	if (type == 'C') 
   	{
-  		out = degrees;
+  		c = degrees;
   	}
   	else if (type == 'F') 
   	{
-  		out = ((degrees - 32) / 1.8);
+  		c = ((degrees - 32) / 1.8);
   	}
   	else
   	{
-  		out = 10.0;
-  		System.out.println("nope");
+  		System.out.println("Please enter a different value: ");
   	}
-  	return out;
+  	return c;
+  }
+  public double getF() 
+  {
+    double f;
+    if (type == 'C') 
+    {
+      f = degrees;
+    }
+    else if (type == 'F') 
+    {
+      f = ((degrees * 1.8) + 32);
+    }
+    else
+    {
+      System.out.println("Please enter a different value: ");
+    }
+    return f;
   }
 }
 
